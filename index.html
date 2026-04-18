@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZCFX Academy - The Mechanical Trading System</title>
+<meta name="description" content="The exact mechanical trading system Luke Taylor has used for 9 years. One setup. Rule-based. Join 1,100+ traders inside ZCFX Academy.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#060a08;--bg-2:#0a1210;--surface:#101c16;--line:rgba(34,197,94,.12);
+--text:#f0f5f2;--muted:#8a9e90;--accent:#22c55e;--accent-2:#4ade80;--glow:#16a34a;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(34,197,94,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(34,197,94,.015) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;top:-30%;left:50%;transform:translateX(-50%);width:80%;height:70%;background:radial-gradient(circle,rgba(34,197,94,.06) 0%,transparent 60%);pointer-events:none;z-index:0}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+nav{padding:28px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(6,10,8,.92);backdrop-filter:blur(14px);z-index:100}
+.nav-inner{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.03em}
+.logo span{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-cta{padding:10px 22px;background:linear-gradient(135deg,var(--accent) 0%,var(--glow) 100%);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px}
+section{padding:100px 0;position:relative}
+.eyebrow{display:inline-block;padding:6px 14px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:20px;font-size:12px;font-weight:600;color:var(--accent-2);letter-spacing:.15em;text-transform:uppercase;margin-bottom:24px}
+h1{font-size:clamp(42px,6vw,76px);font-weight:800;line-height:1.03;letter-spacing:-.03em;margin-bottom:24px}
+h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+h2{font-size:clamp(32px,4vw,48px);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px}
+h3{font-size:22px;font-weight:600;margin-bottom:14px}
+p{color:var(--muted);font-size:17px;max-width:680px}
+.hero{padding-top:80px;text-align:center}
+.hero p{font-size:20px;margin:0 auto 40px;max-width:720px}
+.cta-primary{display:inline-block;padding:18px 38px;background:linear-gradient(135deg,var(--accent) 0%,var(--glow) 100%);color:#fff;text-decoration:none;border-radius:12px;font-weight:700;font-size:16px;box-shadow:0 10px 40px rgba(34,197,94,.3);transition:.2s}
+.cta-primary:hover{transform:translateY(-2px)}
+.vsl-box{max-width:900px;margin:60px auto;aspect-ratio:16/9;background:linear-gradient(135deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative}
+.vsl-box::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(34,197,94,.06) 0%,transparent 60%)}
+.play-btn{width:88px;height:88px;border-radius:50%;background:rgba(34,197,94,.15);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;z-index:1}
+.play-btn svg{width:32px;height:32px;fill:var(--accent-2);margin-left:4px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin:80px 0 0;padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat-num{font-size:40px;font-weight:800;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.03em}
+.stat-label{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:6px}
+.problem-grid,.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:50px}
+.card{padding:36px;background:linear-gradient(180deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:16px;transition:.3s}
+.card:hover{border-color:rgba(34,197,94,.4);transform:translateY(-4px)}
+.card-num{font-size:14px;color:var(--accent-2);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px}
+.card h3{color:var(--text)}
+.card p{font-size:15px}
+.divider{height:1px;background:linear-gradient(90deg,transparent 0%,var(--line) 50%,transparent 100%)}
+.lead-capture{background:linear-gradient(135deg,rgba(34,197,94,.08) 0%,rgba(22,163,74,.05) 100%);border:1px solid rgba(34,197,94,.2);border-radius:24px;padding:70px 60px;text-align:center;margin:80px 0}
+.lead-capture h2{max-width:640px;margin:0 auto 20px}
+.form-row{display:flex;gap:12px;max-width:520px;margin:36px auto 0}
+.form-row input{flex:1;padding:18px 22px;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--text);font-size:15px;font-family:inherit}
+.form-row input:focus{outline:none;border-color:var(--accent)}
+.form-row button{padding:18px 32px;background:linear-gradient(135deg,var(--accent) 0%,var(--glow) 100%);color:#fff;border:none;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer;font-family:inherit}
+.offer-box{background:linear-gradient(135deg,#081410 0%,#0f1f18 100%);border:1px solid rgba(34,197,94,.25);border-radius:24px;padding:60px;margin-top:40px}
+.offer-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+.offer-price{font-size:48px;font-weight:800;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.03em}
+.offer-price small{font-size:18px;color:var(--muted);font-weight:500;-webkit-text-fill-color:var(--muted)}
+.feature-list{list-style:none;margin-top:24px}
+.feature-list li{padding:12px 0;color:var(--text);display:flex;align-items:flex-start;gap:12px;font-size:15px}
+.feature-list li::before{content:'>';color:var(--accent-2);font-weight:700;flex-shrink:0;font-family:monospace}
+.bio{display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:center}
+.bio-img{aspect-ratio:4/5;background:linear-gradient(135deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:20px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px}
+.faq-item{border-bottom:1px solid var(--line);padding:24px 0;cursor:pointer}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:18px;color:var(--text)}
+.faq-plus{width:24px;height:24px;position:relative;flex-shrink:0}
+.faq-plus::before,.faq-plus::after{content:'';position:absolute;background:var(--accent-2);top:50%;left:50%;transition:.3s}
+.faq-plus::before{width:14px;height:2px;transform:translate(-50%,-50%)}
+.faq-plus::after{width:2px;height:14px;transform:translate(-50%,-50%)}
+.faq-item.open .faq-plus::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0}
+.faq-a{max-height:0;overflow:hidden;transition:.3s}
+.faq-item.open .faq-a{max-height:300px;padding-top:14px}
+.footer{padding:60px 0;border-top:1px solid var(--line);text-align:center}
+.footer p{margin:0 auto;font-size:14px}
+@media(max-width:768px){
+.problem-grid,.pillar-grid,.stats{grid-template-columns:1fr}
+.offer-grid,.bio{grid-template-columns:1fr}
+.lead-capture,.offer-box{padding:40px 24px}
+.form-row{flex-direction:column}
+section{padding:70px 0}
+.stats{gap:20px}
+}
+.reveal{opacity:0;transform:translateY(30px);transition:.8s}
+.reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<nav>
+<div class="container nav-inner">
+<div class="logo">ZCFX <span>ACADEMY</span></div>
+<a href="#apply" class="nav-cta">Join The Academy</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container">
+<div class="eyebrow reveal">ZCFX TRADING</div>
+<h1 class="reveal">One Setup. Nine Years. <em>Consistently Funded.</em></h1>
+<p class="reveal">The mechanical trading system behind 1,100+ trained traders, built by a practitioner with nearly a decade of live market experience. No signals. No guesswork. Just rules.</p>
+<div class="vsl-box reveal">
+<div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+</div>
+<a href="#apply" class="cta-primary reveal">Join ZCFX Academy</a>
+<div class="stats reveal">
+<div><div class="stat-num">9</div><div class="stat-label">Years Live Trading</div></div>
+<div><div class="stat-num">123K</div><div class="stat-label">Instagram Followers</div></div>
+<div><div class="stat-num">1,100+</div><div class="stat-label">Traders Trained</div></div>
+<div><div class="stat-num">4.7/5</div><div class="stat-label">Member Rating</div></div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+<div class="container">
+<div class="eyebrow reveal">THE PROBLEM</div>
+<h2 class="reveal">90% Of Retail Traders<br>Lose Money</h2>
+<p class="reveal" style="font-size:18px">Not because they're unintelligent. Because they're trading without a system.</p>
+<div class="problem-grid">
+<div class="card reveal"><div class="card-num">PROBLEM 01</div><h3>Strategy Overload</h3><p>You've watched 200 YouTube videos. Each one contradicts the last. You have 12 indicators on your chart and no conviction in any of them.</p></div>
+<div class="card reveal"><div class="card-num">PROBLEM 02</div><h3>No Risk Framework</h3><p>You set stops based on "feel." You size positions based on how confident you are. One bad trade wipes three good weeks.</p></div>
+<div class="card reveal"><div class="card-num">PROBLEM 03</div><h3>No Review Process</h3><p>You take trades, win or lose, and move on. No journal, no data, no idea which setups actually work for you and which are draining your account.</p></div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+<div class="container">
+<div class="eyebrow reveal">THE SYSTEM</div>
+<h2 class="reveal">The ZCFX Mechanical Method,<br>Built On 3 Pillars</h2>
+<div class="pillar-grid">
+<div class="card reveal"><div class="card-num">PILLAR 1</div><h3>One Setup</h3><p>One mechanical entry. Rule-based. Defined conditions for entry, stop, and target. You either have the setup or you don't. Zero ambiguity.</p></div>
+<div class="card reveal"><div class="card-num">PILLAR 2</div><h3>Risk Architecture</h3><p>1% max risk per trade. Position sizing calculated before entry, not after. The math keeps you in the game long enough for the edge to play out.</p></div>
+<div class="card reveal"><div class="card-num">PILLAR 3</div><h3>Structured Review</h3><p>Journal every trade. Review weekly. Identify behavioral patterns, not just chart patterns. The Notion dashboard tracks everything so you stop repeating mistakes.</p></div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+<div class="container">
+<div class="lead-capture reveal">
+<div class="eyebrow">FREE TRAINING</div>
+<h2>The ZCFX Trading Blueprint</h2>
+<p style="margin:0 auto">The mechanical setup, risk framework, and chart markup system I've used for 9 years. PDF download. Zero filler, no upsell gate.</p>
+<form class="form-row" onsubmit="event.preventDefault();alert('Check your inbox. Blueprint is on its way.')">
+<input type="email" placeholder="Enter your email" required>
+<button type="submit">Get The Blueprint</button>
+</form>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section id="apply">
+<div class="container">
+<div class="eyebrow reveal">THE ACADEMY</div>
+<h2 class="reveal">ZCFX Academy</h2>
+<div class="offer-box reveal">
+<div class="offer-grid">
+<div>
+<div class="offer-price">Less than one bad trade<small>&nbsp;per month</small></div>
+<p style="margin-top:16px">The full ZCFX mechanical system, live trading calls, daily analysis, and direct access to Luke. Built to take you from inconsistent to funded. Most traders lose more than this on a single revenge trade. Investment details shared on application.</p>
+<ul class="feature-list">
+<li>Complete ZCFX mechanical trading system (one setup, rule-based)</li>
+<li>2x live trading calls per week with Luke</li>
+<li>Daily chart analysis and markup before your session starts</li>
+<li>24/7 Discord community with active traders</li>
+<li>All-In-One Notion Performance Dashboard (journal, tracker, reviews)</li>
+<li>Annotated case studies from real funded account trades</li>
+<li>Direct support from Luke for trade review and questions</li>
+<li>Cancel anytime. No contracts.</li>
+</ul>
+</div>
+<div>
+<div style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:16px;padding:32px;text-align:center">
+<div class="eyebrow">MEMBER RESULT</div>
+<h3 style="margin-bottom:12px">Marcus. Manchester. Funded In 11 Weeks.</h3>
+<p style="margin:0 auto 24px">Failed 4 challenges before ZCFX. Simplified to one setup, two pairs, strict risk rules. Passed phase 1 and phase 2 without a single rule violation.</p>
+<a href="#apply" class="cta-primary" style="width:100%">Join The Academy</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+<div class="container">
+<div class="bio">
+<div class="bio-img reveal">[Luke's photo]</div>
+<div class="reveal">
+<div class="eyebrow">ABOUT LUKE</div>
+<h2>Nearly A Decade In The Markets</h2>
+<p style="font-size:17px;margin-top:20px">I started trading forex as a teenager. Blew accounts, chased signals, did everything wrong. Then I stopped trying to predict the market and built a mechanical system instead.</p>
+<p style="margin-top:16px">Nine years later, I run ZCFX Trading LTD, teach over 1,100 traders, and trade live in front of my community twice a week. My only focus is helping disciplined traders get funded and stay funded using a system they can run without me.</p>
+</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+<div class="container" style="max-width:820px">
+<div class="eyebrow reveal">FAQ</div>
+<h2 class="reveal">Common Questions</h2>
+<div style="margin-top:40px">
+<div class="faq-item reveal" onclick="this.classList.toggle('open')">
+<div class="faq-q"><span>Do I need trading experience?</span><div class="faq-plus"></div></div>
+<div class="faq-a"><p>No. The ZCFX system is built from the ground up. Beginners start with the mechanical setup and risk framework. Intermediate traders refine their existing process. Both paths are supported in the Academy.</p></div>
+</div>
+<div class="faq-item reveal" onclick="this.classList.toggle('open')">
+<div class="faq-q"><span>How is this different from free YouTube content?</span><div class="faq-plus"></div></div>
+<div class="faq-a"><p>YouTube gives you information. The Academy gives you a system plus accountability. Live calls twice a week, daily chart markups, trade journaling, and direct feedback from Luke on your specific trades.</p></div>
+</div>
+<div class="faq-item reveal" onclick="this.classList.toggle('open')">
+<div class="faq-q"><span>Will this help me pass a funded challenge?</span><div class="faq-plus"></div></div>
+<div class="faq-a"><p>The ZCFX system is built around the discipline and risk management funded accounts require. Members have passed challenges at FTMO, MyFundedFX, and others using the mechanical approach taught inside.</p></div>
+</div>
+<div class="faq-item reveal" onclick="this.classList.toggle('open')">
+<div class="faq-q"><span>What pairs and timeframes does the system work on?</span><div class="faq-plus"></div></div>
+<div class="faq-a"><p>The core system focuses on major forex pairs (EUR/USD, GBP/USD, USD/JPY) with applications to metals and indices. Works across timeframes, though Luke primarily trades the higher timeframe setups during London and New York sessions.</p></div>
+</div>
+<div class="faq-item reveal" onclick="this.classList.toggle('open')">
+<div class="faq-q"><span>Can I cancel anytime?</span><div class="faq-plus"></div></div>
+<div class="faq-a"><p>Yes. No contracts, no lock-in. Cancel anytime from your account. Most members stay because the live calls and daily analysis alone are worth the investment.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="text-align:center">
+<div class="container">
+<h2 class="reveal">Stop Guessing. Start Trading With Rules.</h2>
+<p class="reveal" style="margin:20px auto 40px">Join 1,100+ traders inside ZCFX Academy. The system is waiting.</p>
+<a href="#apply" class="cta-primary reveal">Join The Academy</a>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<p>ZCFX Trading LTD. All rights reserved. 2026.</p>
+</div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('in')),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
+</script>
+</body>
+</html>
